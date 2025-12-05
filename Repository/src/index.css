@@ -598,7 +598,7 @@ body {
   .nav-controls span,
   .table-nav-controls span {
     min-width: auto;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     white-space: nowrap;
   }
 
@@ -633,7 +633,7 @@ body {
   }
 
   .projects-table {
-    min-width: 500px;
+    min-width: 400px;
   }
 }
 
