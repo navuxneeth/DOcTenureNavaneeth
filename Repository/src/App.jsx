@@ -5,7 +5,7 @@ import CalendarView from './components/CalendarView';
 import ProjectsTable from './components/ProjectsTable';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('table'); // table or calendar
+  const [activeTab, setActiveTab] = useState('calendar'); // table or calendar
 
   return (
     <div className="app-container">
