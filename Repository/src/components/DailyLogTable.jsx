@@ -69,10 +69,21 @@ const DailyLogTable = forwardRef((props, ref) => {
             return [formatDate(date), log];
         });
 
+        // Helper function to escape CSV cells
+        const escapeCSVCell = (cell) => {
+            // Only wrap in quotes if contains comma, quote, or newline
+            if (cell.includes('"')) {
+                return `"${cell.replace(/"/g, '""')}"`;
+            } else if (cell.includes(',') || cell.includes('\n')) {
+                return `"${cell}"`;
+            }
+            return cell;
+        };
+
         // Convert to CSV format
         const csvContent = [
             headers.join(','),
-            ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+            ...rows.map(row => row.map(escapeCSVCell).join(','))
         ].join('\n');
 
         // Create and download file
@@ -85,6 +96,8 @@ const DailyLogTable = forwardRef((props, ref) => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        // Clean up the URL object to free memory
+        URL.revokeObjectURL(url);
     };
 
     // Expose exportToCSV method to parent component

@@ -2,6 +2,7 @@
 
 :root {
   --primary-color: #2563eb;
+  --primary-color-dark: #1d4ed8;
   --primary-light: #eff6ff;
   --secondary-color: #64748b;
   --accent-red: #ef4444;
@@ -577,7 +578,7 @@ body {
 }
 
 .export-csv-btn:hover {
-  background: #1d4ed8;
+  background: var(--primary-color-dark);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
@@ -651,5 +652,5 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider:hover {
-  background-color: #1d4ed8;
+  background-color: var(--primary-color-dark);
 }
