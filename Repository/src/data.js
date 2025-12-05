@@ -28,7 +28,36 @@ export const initialLogs = {
     "2025-12-05": ""
 };
 
-// Helper to generate dates from Dec 2, 2025 to Dec 30, 2025
+// Helper to get all dates for a given month
+export const getMonthDays = (year, month) => {
+    const days = [];
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    
+    // Get day of week for first day (0 = Sunday)
+    const startDayOfWeek = firstDay.getDay();
+    
+    // Add padding days from previous month to start on Sunday
+    for (let i = startDayOfWeek - 1; i >= 0; i--) {
+        const prevDate = new Date(year, month, 0 - i);
+        days.push({ date: prevDate, isCurrentMonth: false });
+    }
+    
+    // Add all days of current month
+    for (let d = 1; d <= lastDay.getDate(); d++) {
+        days.push({ date: new Date(year, month, d), isCurrentMonth: true });
+    }
+    
+    // Add padding days from next month to complete the grid
+    const remainingDays = 42 - days.length; // 6 rows * 7 days = 42
+    for (let d = 1; d <= remainingDays; d++) {
+        days.push({ date: new Date(year, month + 1, d), isCurrentMonth: false });
+    }
+    
+    return days;
+};
+
+// Helper to generate dates from Dec 2, 2025 to Dec 30, 2025 (for backward compatibility)
 export const getDays = () => {
     const days = [];
     const start = new Date(2025, 11, 2); // Month is 0-indexed: 11 = Dec

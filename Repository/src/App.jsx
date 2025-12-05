@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import DailyLogTable from './components/DailyLogTable';
 import CalendarView from './components/CalendarView';
@@ -6,10 +6,26 @@ import ProjectsTable from './components/ProjectsTable';
 
 function App() {
   const [activeTab, setActiveTab] = useState('calendar'); // table or calendar
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check localStorage for saved preference
+    const saved = localStorage.getItem('darkMode');
+    return saved === 'true';
+  });
+
+  useEffect(() => {
+    // Apply dark mode class to body
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    // Save preference
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
 
   return (
     <div className="app-container">
-      <Header />
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
       <main className="main-content">
         <div className="view-toggle-main">
