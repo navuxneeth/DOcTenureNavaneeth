@@ -61,10 +61,15 @@ const DailyLogTable = forwardRef((props, ref) => {
     };
 
     const exportToCSV = () => {
-        // Create CSV content
+        // Create CSV content with all logs from initialLogs
         const headers = ['Date', 'Activity Log'];
-        const rows = weekDays.map(date => {
-            const dateStr = formatDateKey(date);
+        
+        // Get all dates from initialLogs and sort them
+        const allDates = Object.keys(initialLogs).sort();
+        
+        const rows = allDates.map(dateStr => {
+            const [year, month, day] = dateStr.split('-');
+            const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
             const log = initialLogs[dateStr] || "";
             return [formatDate(date), log];
         });
@@ -91,7 +96,7 @@ const DailyLogTable = forwardRef((props, ref) => {
         const link = document.createElement('a');
         const url = URL.createObjectURL(blob);
         link.setAttribute('href', url);
-        link.setAttribute('download', `weekly_activity_log_${getWeekRange().replace(/\//g, '-')}.csv`);
+        link.setAttribute('download', `activity_log_complete.csv`);
         link.style.visibility = 'hidden';
         document.body.appendChild(link);
         link.click();
