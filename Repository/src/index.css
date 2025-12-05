@@ -2,6 +2,7 @@
 
 :root {
   --primary-color: #2563eb;
+  --primary-color-dark: #1d4ed8;
   --primary-light: #eff6ff;
   --secondary-color: #64748b;
   --accent-red: #ef4444;
@@ -539,4 +540,117 @@ body {
     min-width: auto;
     font-size: 0.875rem;
   }
+
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  margin-top: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Export CSV Button */
+.export-csv-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.export-csv-btn:hover {
+  background: var(--primary-color-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.export-csv-btn:active {
+  transform: translateY(0);
+}
+
+/* Dark Mode Switch Container */
+.dark-mode-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.switch-label {
+  font-weight: 500;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.slider:hover {
+  background-color: var(--secondary-color);
+}
+
+input:checked + .slider:hover {
+  background-color: var(--primary-color-dark);
 }
