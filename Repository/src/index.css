@@ -152,12 +152,13 @@ body {
 .view-toggle-main {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
   background: var(--card-bg);
   padding: 0.5rem;
   border-radius: var(--radius-lg);
   width: fit-content;
   box-shadow: var(--shadow-sm);
+  justify-content: center;
 }
 
 .view-toggle-main button {
@@ -288,7 +289,14 @@ body {
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-nav-row {
+  display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 1.5rem;
 }
@@ -299,6 +307,7 @@ body {
   background: var(--bg-color);
   padding: 0.25rem;
   border-radius: var(--radius-lg);
+  margin: 0 auto;
 }
 
 .view-switcher button {
@@ -508,10 +517,15 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
   .header {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding: 1rem;
   }
   
   .header-left {
@@ -525,9 +539,50 @@ body {
   .user-details {
     text-align: center;
   }
+
+  .view-toggle-main {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .view-toggle-main button {
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .calendar-header {
+    margin-bottom: 1rem;
+  }
+
+  .calendar-nav-row {
+    margin-bottom: 1rem;
+  }
+
+  .view-switcher {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .view-switcher button {
+    flex: 1;
+    min-width: 80px;
+  }
   
   .calendar-grid.month {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .calendar-grid.week {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .calendar-cell {
+    min-height: 80px;
+  }
+
+  .table-container {
+    padding: 1rem;
   }
 
   .table-header {
@@ -535,15 +590,50 @@ body {
     gap: 1rem;
   }
 
+  .nav-controls {
+    width: 100%;
+    justify-content: center;
+  }
+
   .nav-controls span,
   .table-nav-controls span {
     min-width: auto;
     font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .log-table {
+    font-size: 0.85rem;
+  }
+
+  .log-table th,
+  .log-table td {
+    padding: 0.75rem 0.5rem;
   }
 
   .footer {
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
+  }
+
+  .export-csv-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dark-mode-switch-container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .projects-container {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .projects-table {
+    min-width: 400px;
   }
 }
 

@@ -97,7 +97,9 @@ const CalendarView = () => {
                         Daily
                     </button>
                 </div>
-                
+            </div>
+            
+            <div className="calendar-nav-row">
                 <div className="nav-controls">
                     {viewMode === 'month' ? (
                         <>
