@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { initialLogs } from '../data';
 
-const DailyLogTable = () => {
+const DailyLogTable = forwardRef((props, ref) => {
     const [currentWeekStart, setCurrentWeekStart] = useState(() => {
         // Start with the week containing Dec 2, 2025 (which is a Tuesday)
         const dec2 = new Date(2025, 11, 2);
@@ -60,6 +60,38 @@ const DailyLogTable = () => {
         return `${start} - ${end}`;
     };
 
+    const exportToCSV = () => {
+        // Create CSV content
+        const headers = ['Date', 'Activity Log'];
+        const rows = weekDays.map(date => {
+            const dateStr = formatDateKey(date);
+            const log = initialLogs[dateStr] || "";
+            return [formatDate(date), log];
+        });
+
+        // Convert to CSV format
+        const csvContent = [
+            headers.join(','),
+            ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+        ].join('\n');
+
+        // Create and download file
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.setAttribute('href', url);
+        link.setAttribute('download', `weekly_activity_log_${getWeekRange().replace(/\//g, '-')}.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    // Expose exportToCSV method to parent component
+    useImperativeHandle(ref, () => ({
+        exportToCSV
+    }));
+
     return (
         <div className="table-container">
             <div className="table-header">
@@ -94,6 +126,8 @@ const DailyLogTable = () => {
             </table>
         </div>
     );
-};
+});
+
+DailyLogTable.displayName = 'DailyLogTable';
 
 export default DailyLogTable;

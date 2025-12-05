@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import DailyLogTable from './components/DailyLogTable';
 import CalendarView from './components/CalendarView';
 import ProjectsTable from './components/ProjectsTable';
+import Footer from './components/Footer';
 
 function App() {
   const [activeTab, setActiveTab] = useState('calendar'); // table or calendar
@@ -11,6 +12,7 @@ function App() {
     const saved = localStorage.getItem('darkMode');
     return saved === 'true';
   });
+  const tableRef = useRef(null);
 
   useEffect(() => {
     // Apply dark mode class to body
@@ -23,9 +25,15 @@ function App() {
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
+  const handleExportCSV = () => {
+    if (tableRef.current && tableRef.current.exportToCSV) {
+      tableRef.current.exportToCSV();
+    }
+  };
+
   return (
     <div className="app-container">
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Header />
 
       <main className="main-content">
         <div className="view-toggle-main">
@@ -44,13 +52,15 @@ function App() {
         </div>
 
         <div className="content-area">
-          {activeTab === 'table' ? <DailyLogTable /> : <CalendarView />}
+          {activeTab === 'table' ? <DailyLogTable ref={tableRef} /> : <CalendarView />}
         </div>
 
         <div className="projects-section">
           <ProjectsTable />
         </div>
       </main>
+
+      <Footer darkMode={darkMode} setDarkMode={setDarkMode} onExportCSV={handleExportCSV} />
     </div>
   );
 }
