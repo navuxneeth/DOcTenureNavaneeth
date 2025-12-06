@@ -29,7 +29,7 @@ When adding or updating daily entries, the user will provide input in the follow
 **The system should automatically:**
 
 1. **Parse the input** to extract:
-   - Date: "dec 7" → Convert to `2025-12-07` format (YYYY-MM-DD)
+   - Date: "dec 7" → Convert to `2025-12-07` format (YYYY-MM-DD) - use the current year from context (tenure started Dec 2, 2025)
    - Project name: "FICSI e-Learning" → Match to existing project in `projects` array
    - Activity description: "drafts 1.1 and 2.1 submitted"
 
@@ -60,7 +60,7 @@ export const projects = [
         id: 1,
         name: "FICSI e-Learning",
         status: "Ongoing",
-        notes: "Submitted 4 drafts total (2 initial, 2 revised versions 1.1 and 2.1 after client feedback)" // AI-generated summary
+        notes: "Submitted initial 2 drafts, then revised versions 1.1 and 2.1 after first client feedback" // AI-generated summary
     }
     // ... other projects ...
 ];
