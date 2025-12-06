@@ -120,6 +120,20 @@ body {
   margin: 0;
   color: var(--text-secondary);
   font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.doj-badge {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 
 /* Dark Mode Toggle */
@@ -269,6 +283,9 @@ body {
   font-weight: 500;
   color: var(--text-main);
   width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .weekend-row {
@@ -431,6 +448,9 @@ body {
   font-weight: 600;
   font-size: 0.9rem;
   color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .weekend .cell-date {

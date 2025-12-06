@@ -11,7 +11,7 @@ export const projects = [
         id: 1,
         name: "FICSI e-Learning",
         status: "Ongoing",
-        notes: "Submitted 2 Drafts, Awaiting client review"
+        notes: "Submitted 2 Drafts, Designing second version drafts after client review"
     },
     {
         id: 2,

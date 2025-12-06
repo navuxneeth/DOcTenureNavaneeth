@@ -15,7 +15,10 @@ const Header = () => {
                 <div className="user-details">
                     <h2>{userInfo.name}</h2>
                     <p className="role">{userInfo.role}</p>
-                    <p className="doj">DOJ: {userInfo.doj}</p>
+                    <p className="doj">
+                        <span className="doj-badge">DOJ</span>
+                        {userInfo.doj}
+                    </p>
                 </div>
             </div>
         </header>
