@@ -2,7 +2,7 @@
 
 # DOcNavTenure
 
-**⚠️ Please do not fork this repository**
+**⚠️ Do not fork this repository**
 
 This repository is for internal use only and should not be forked or distributed.
 
