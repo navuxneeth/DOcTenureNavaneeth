@@ -11,13 +11,15 @@ export const projects = [
         id: 1,
         name: "FICSI e-Learning",
         status: "Ongoing",
-        notes: "Submitted 2 Drafts, Designing second version drafts after client review"
+        notes: "Submitted 2 Drafts, Designing second version drafts after client review",
+        logoUrl: "https://media.licdn.com/dms/image/v2/C4D0BAQFreh9xKrw08g/company-logo_200_200/company-logo_200_200/0/1660715500875/sector_skill_council_for_food_processing_logo?e=2147483647&v=beta&t=k7S6YXQ-0T9RByFqYfh0TFp_YsR0lizNKvWH0-UIAmw"
     },
     {
         id: 2,
         name: "Mankind Agritech",
         status: "Ongoing",
-        notes: "Homepage Redesign, Menu and Footer redesign submitted"
+        notes: "Homepage Redesign, Menu and Footer redesign submitted",
+        logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVQvRWsN8tDbRu2oXhjA_tH_L22_Oj1esPQ&s"
     }
 ];
 

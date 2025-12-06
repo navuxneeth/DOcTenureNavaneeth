@@ -516,6 +516,20 @@ body {
   color: var(--text-main);
 }
 
+.project-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
 .status-badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
