@@ -9,7 +9,7 @@ export const userInfo = {
 export const projects = [
     {
         id: 1,
-        name: "FISCI e-Learning",
+        name: "FICSI e-Learning",
         status: "Ongoing",
         notes: "Submitted 2 Drafts, Awaiting client review"
     },
@@ -25,7 +25,8 @@ export const initialLogs = {
     "2025-12-02": "FICSI e-Learning page redesign: 2 Drafts",
     "2025-12-03": "FICSI Figma Sites setup, Mankind Agritech Menu and Homepage Plan",
     "2025-12-04": "Mankind agritech Homepage redesign, Implement new Menu and Footer",
-    "2025-12-05": ""
+    "2025-12-05": "FICSI e-Learning page Redesign Drafts 1.1 and 2.1 (after client feedback 1)",
+    "2025-12-06": "FICSI e-Learning page Redesign Drafts 1.1 and 2.1 (after client feedback 1)"
 };
 
 // Helper to get all dates for a given month
