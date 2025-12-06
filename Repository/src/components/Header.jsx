@@ -16,8 +16,7 @@ const Header = () => {
                     <h2>{userInfo.name}</h2>
                     <p className="role">{userInfo.role}</p>
                     <p className="doj">
-                        <span className="doj-badge">DOJ</span>
-                        {userInfo.doj}
+                        <span className="doj-label">DOJ:</span> {userInfo.doj}
                     </p>
                 </div>
             </div>

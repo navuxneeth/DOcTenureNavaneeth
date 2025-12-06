@@ -126,14 +126,9 @@ body {
   justify-content: flex-end;
 }
 
-.doj-badge {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+.doj-label {
+  color: var(--primary-color);
   font-weight: 600;
-  font-size: 0.75rem;
 }
 
 /* Dark Mode Toggle */
