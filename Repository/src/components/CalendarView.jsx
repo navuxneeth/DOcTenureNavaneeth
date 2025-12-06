@@ -136,13 +136,17 @@ const CalendarView = () => {
                     const log = initialLogs[dateStr] || '';
                     const isWeekend = date.getDay() === 0 || date.getDay() === 6;
                     const isOtherMonth = !dayObj.isCurrentMonth;
+                    const isDec2 = date.getDate() === 2 && date.getMonth() === 11 && date.getFullYear() === 2025;
 
                     return (
                         <div 
                             key={`${dateStr}-${index}`} 
                             className={`calendar-cell ${isWeekend ? 'weekend' : ''} ${isOtherMonth ? 'other-month' : ''}`}
                         >
-                            <div className="cell-date">{date.getDate()}</div>
+                            <div className="cell-date">
+                                {date.getDate()}
+                                {isDec2 && <span className="doj-badge">DOJ</span>}
+                            </div>
                             <div className="cell-content">{log}</div>
                         </div>
                     );

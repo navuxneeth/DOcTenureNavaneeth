@@ -132,10 +132,14 @@ const DailyLogTable = forwardRef((props, ref) => {
                         const dateStr = formatDateKey(date);
                         const log = initialLogs[dateStr] || "";
                         const weekend = isWeekend(date);
+                        const isDec2 = date.getDate() === 2 && date.getMonth() === 11 && date.getFullYear() === 2025;
 
                         return (
                             <tr key={dateStr} className={weekend ? "weekend-row" : ""}>
-                                <td className="date-cell">{formatDate(date)}</td>
+                                <td className="date-cell">
+                                    {formatDate(date)}
+                                    {isDec2 && <span className="doj-badge">DOJ</span>}
+                                </td>
                                 <td className="log-cell">{log}</td>
                             </tr>
                         );

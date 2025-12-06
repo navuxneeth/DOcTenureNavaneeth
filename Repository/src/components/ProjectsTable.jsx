@@ -16,7 +16,18 @@ const ProjectsTable = () => {
                 <tbody>
                     {projects.map((project) => (
                         <tr key={project.id}>
-                            <td className="project-name">{project.name}</td>
+                            <td className="project-name">
+                                <div className="project-name-wrapper">
+                                    {project.logoUrl && (
+                                        <img 
+                                            src={project.logoUrl} 
+                                            alt={`${project.name} logo`} 
+                                            className="project-logo"
+                                        />
+                                    )}
+                                    <span>{project.name}</span>
+                                </div>
+                            </td>
                             <td>
                                 <span className={`status-badge ${project.status.toLowerCase()}`}>
                                     {project.status}

@@ -8,7 +8,7 @@ const Footer = ({ darkMode, setDarkMode, onExportCSV }) => {
                 onClick={onExportCSV}
                 aria-label="Export table as CSV"
             >
-                📊 Export table as .CSV
+                Export table as .CSV
             </button>
             
             <div className="dark-mode-switch-container">
