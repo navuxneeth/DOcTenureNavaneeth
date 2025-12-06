@@ -5,3 +5,15 @@
 **⚠️ Please do not fork this repository**
 
 This repository is for internal use only and should not be forked or distributed.
+
+## Development Notes
+
+**IMPORTANT for GitHub Copilot and Automated Updates:**
+
+Whenever making changes to the project in the `Repository` folder, **always ensure the root HTML file and assets are updated** by following these steps:
+
+1. Make your changes in the `Repository/src` folder
+2. Build the project: `cd Repository && npm run build`
+3. Sync the build to root: `cp -r dist/* ../`
+
+This ensures that the deployed version (root folder) stays in sync with the development version (Repository folder).
